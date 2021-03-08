@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  // 将一千个随机的六位数字组成的验证码，存放在一个数组当中
+
+  // 解法一
+  let arr1 = new Array(1000).fill(0).map(item => { return ('' + Math.floor(Math.random() * 1000000)).padStart(6,'0') })
+  console.log(arr1)
+</script>
+</html>
