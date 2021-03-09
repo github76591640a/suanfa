@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  // 求斐波那契数列的第n项，第零项为0，第一项为1..
+
+  // 暴力递归
+  function dif(n) {
+    if (n === 0) return 0
+    if (n === 1) return 1
+    return dif(n - 1) + dif(n - 2)
+  }
+
+  // 暴力迭代
+  function Iteration(n) {
+    if (n === 0) return 0
+    if (n === 1) return 1
+    let arr = [0, 1]
+    for(let i = 2; i <= n ;i++) {
+      arr[i] = arr[i - 1] + arr[i - 2]
+    }
+    return arr[n]
+  }
+
+  // 动态路径规划
+  function minPath(n) {
+    if (n === 0) return 0
+    if (n === 1) return 1
+    let pre = 0
+    let cur = 1
+    let next = 0
+    let i = 2
+    while(i <= n) {
+      next = pre + cur
+      pre = cur
+      cur = next
+      i++
+    }
+    return cur
+  }
+
+  function minPath1(n) { // 骚路子
+    if (n === 0) return 0
+    if (n === 1) return 1
+    const arr = [0, 1]
+    let i = 2
+    while(i <= n) {
+      arr[i % 2] = arr[0] + arr[1] // 这里是数组的第一项和第二项的交换
+      i++
+    }
+    return arr[n % 2] // 这里
+  }
+</script>
+</html>
