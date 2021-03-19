@@ -27,35 +27,43 @@
   </div>
 </body>
 <script>
-  /**
-   * 方法一: 使用js的api将十进制数字转换成二进制
-  */
-  let num = 10
-  function tra1To2(num) {
-    let numT
-    if(num > 0) {
-      numT =  num.toString(2)
-    }else {
-      numT = num.toString(2).replace('-', 1)
-    }
-    return numT
-  }
+  // /**
+  //  * 方法一: 使用js的api将十进制数字转换成二进制
+  // */
+  // let num = 10
+  // function tra1To2(num) {
+  //   let numT
+  //   if(num > 0) {
+  //     numT =  num.toString(2)
+  //   }else {
+  //     numT = num.toString(2).replace('-', 1)
+  //   }
+  //   return numT
+  // }
 
-  /**
-   * 方法二 
-   * 用js语言将数字强行的转换成二进制
-  */
-  function tra1To2Two(num) {
-    let numABS = Math.abs(num)
-    let strT = ''
-    while(numABS > 1 ) {
-      let yuNum =  numABS % 2
-      numABS = Math.floor(numABS / 2)
-      strT = yuNum + strT
+  // /**
+  //  * 方法二 
+  //  * 用js语言将数字强行的转换成二进制
+  // */
+  // function tra1To2Two(num) {
+  //   let numABS = Math.abs(num)
+  //   let strT = ''
+  //   while(numABS > 1 ) {
+  //     let yuNum =  numABS % 2
+  //     numABS = Math.floor(numABS / 2)
+  //     strT = yuNum + strT
+  //   }
+  //   strT = numABS + strT
+  //   if(num < 0) return 1 + strT
+  //   return strT
+  // }
+  var a = 20
+  var test = {
+    a: 50,
+    init:() => {
+      console.log(this.a)
     }
-    strT = numABS + strT
-    if(num < 0) return 1 + strT
-    return strT
   }
+  test.init()
 </script>
 </html>

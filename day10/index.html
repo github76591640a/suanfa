@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      text-align: center;
+    }
+    img {
+      display: inline-block;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <img src="./day10.jpg" alt="">
+</body>
+<script>
+  /**
+   * 方法一
+  */
+function getStr(str) {
+  let str1 = ''
+  const len = str.length
+  for(let i = 0; i < len; i++) {
+    if(str[i] === ' ') {
+      str1 += '20%'
+      continue
+    }
+    str1 += str[i]
+  }
+  return str1
+}
+ let str = 'We Are Happy'
+ console.log(getStr(str));
+
+ // 如何把一个字符串转换成数组
+ /**
+  * 方法一
+ */
+function getStrArr(str) {
+  return [...str]
+}
+/**
+  * 方法二
+ */
+ function getStrArr1(str) {
+  return Array.from(str)
+}
+/**
+  * 方法三
+ */
+ function getStrArr2(str) {
+  return Array.prototype.slice.call(str)
+}
+// function test(o) {
+//   // console.log(o);
+//   // o = { v: 20 }
+//   o.v = 20
+// }
+// var m = { y: 30 }
+// // test(m)
+// console.log(m.v)
+</script>
+</html>

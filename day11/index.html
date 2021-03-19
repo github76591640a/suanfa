@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      text-align: center;
+    }
+    img {
+      display: inline-block;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <img src="./day11.jpg" alt="">
+</body>
+<script>
+  /**
+   * 方法一： 使用hash的方式(暴力循环)
+  */
+  function getMaxNum(arr) {
+    const length = arr.length
+    const obj = {}
+    for(let i = 0; i < length; i++)  {
+      if (!obj[arr[i]]) {
+        obj[arr[i]] = 1
+      } else {
+        obj[arr[i]] += 1
+      }
+      if (obj[arr[i]] > length / 2) {
+        return arr[i]
+      }
+    }
+  }
+
+  /**
+   * 方法二： 使用摩尔投票的方法
+  */
+  function getMaxNum1(arr) {
+    let vote = 0
+    let result = 0
+    const length = arr.length
+    for(let i = 0; i < length; i++) {
+      if (vote === 0) {
+        result = arr[i]
+      } else if (result === arr[i]) {
+        vote += 1
+      } else {
+        vote -= 1
+      }
+    }
+    return result
+  }
+</script>
+</html>
