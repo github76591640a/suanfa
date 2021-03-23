@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      text-align: center;
+    }
+    img {
+      display: inline-block;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <img src="./day12.jpg">
+</body>
+<script>
+  /**
+   * 方法一
+  */
+  function findMissingNum1(arr) {
+    const length = arr.length
+    for (let i = 0; i < length; i++) {
+      if (arr[i] !== i) return arr[i] - 1 
+    }
+  }
+
+  /**
+   * 方法二
+  */
+  function findMissingNum2(arr) {
+    const length = arr.length
+    let first = 0
+    let end = arr.length - 1
+    let mid = 0
+    if (arr[end] === end) {
+      return length
+    }
+    while(true) {
+      mid = Math.floor((first + end) / 2)
+      if (mid === first) {
+        break
+      }
+      if (arr[mid] === mid) {
+        first = mid
+      } else {
+        end = mid
+      }
+    }
+    if (arr[first] !== first) {
+      return arr[first] - 1
+    } else {
+      return arr[end] - 1
+    }
+  }
+</script>
+</html>
